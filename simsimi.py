@@ -16,11 +16,15 @@ def simsimi_header():
 
 
 def simsimi_(msg):
-    data_json = {"av": "8.2.5","os": "a","lc": "ko","cc": "KR","tz": "Asia/Seoul","message": msg,"free_level": 1} #레벨 알아서 설정 ㄱ
-    si = requests.post("https://beta-bumcoming.simsimi.com/simtalk/get_talk_set",json=data_json,headers=simsimi_header()).json()
+    try:
+        data_json = {"av": "8.2.5","os": "a","lc": "ko","cc": "KR","tz": "Asia/Seoul","message": msg,"free_level": 15}
+        si = requests.post("https://beta-bumcoming.simsimi.com/simtalk/get_talk_set",json=data_json,headers=simsimi_header()).json()
 
-    result = f'[심심이 AI] : {si["origin_sentence"]}'
-    return result
+        result = f'[심심이 AI] : {si["origin_sentence"]}'
+        return result
+    except Exception as e:
+        result_ = f'[심심이 AI] : {si["detail"]}'
+        return result_
 
 
 def main():
