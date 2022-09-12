@@ -16,7 +16,7 @@ def simsimi_header():
 
 
 def simsimi_(msg):
-    data_json = {"av": "8.2.5","os": "a","lc": "ko","cc": "KR","tz": "Asia/Seoul","message": msg,"free_level": 1}
+    data_json = {"av": "8.2.5","os": "a","lc": "ko","cc": "KR","tz": "Asia/Seoul","message": msg,"free_level": 1} #레벨 알아서 설정 ㄱ
     si = requests.post("https://beta-bumcoming.simsimi.com/simtalk/get_talk_set",json=data_json,headers=simsimi_header()).json()
 
     result = f'[심심이 AI] : {si["origin_sentence"]}'
